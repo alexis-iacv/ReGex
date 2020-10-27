@@ -1,0 +1,129 @@
+#PALABRAS QUE TENGAS UN A LONJITUD DE 7 O MAS LETRAS
+Palabras = ["Postiks","Mineral","Palncha","Cubrebocas","Cereal","Macetas","Calcomania","Televisor","Alacena","Libreria","Aguacate","Bolsas"]
+print(Palabras)
+Palabras_7=[]
+for p in Palabras:
+    if len(p)>=7:
+        Palabras_7.append(p)
+print("Palabras con más de 7 letras: ", Palabras_7)
+print("Numero de palabaras con más de 7 letras: ",len(Palabras_7))  
+
+
+#EXORESIONES QUE NO TERMINEN EN
+import re
+texto = "En cómputo teórico y teoría de lenguajes formales una expresión regular, o expresión racional,​​ también son conocidas como regex o regexp"
+
+condicion =  r'\w+[b-df-hj-np-tv-z]\b'
+resultado = re.findall(condicion, texto)
+
+for x in resultado:
+    print(x)
+    
+    
+    #Las palabras que inicien con “M” donde la segunda letra no se
+import re
+texto = "mañana mysqul miercoles"
+
+condicion =  r'\b[mM][^aA-uU]'
+resultado = re.findall(condicion, texto)
+
+for x in resultado:
+    print(x)
+    
+    
+    #Expresiones encerradas entre comillas
+import re
+texto= """mantecada,"tostada", "panque", "noche","corazon","lluvia", viento, huracan"""
+condicion= r'"(.*?)"'
+palabras = re.findall(condicion, texto)
+for x in palabras:
+    print(x)
+    
+    
+    # ip's
+import socket
+
+def ip_valida(ip):
+    try:
+        socket.inet_aton(ip)
+        return True
+    except socket.error:
+        return False
+
+
+print(ip_valida("192.168.1.1"))
+print(ip_valida("192.168.0.5"))
+print(ip_valida("172.1.0.24"))
+print(ip_valida("152.0.1.24.7"))
+
+#6.	Horas
+
+import time
+print(time.time())
+print(time.strftime("%H:%M:%S"))
+
+hora=time.strftime("%H:%M:%S")
+print (hora)
+
+#%c:  hora
+tipo ="%c"  
+res=time.strftime(tipo)
+print (res)
+
+
+#Telefonos
+import re
+numeros = "5s34d, abcdefhijk, 9851124369"
+regex = r'(\+34|0034|34)?[-]*(8|9)[ -]*([0-9][ -]*){9}'
+telefonos = re.findall(regex, numeros)
+
+for x in telefonos:
+    print(x)
+    
+    
+    #8.	Correos electrónicos
+import re
+
+texto = """
+correo1:axios@gmail.org
+correo2:rayac@jsa.net
+correo3:html@yahoo.com
+correo4:caamal@hotmail.net
+correo5:velasco@outlook.net
+"""
+
+condicion = r'[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}'
+
+correos = re.findall(condicion, texto)
+
+print(correos)
+
+
+#Url’s
+import re
+
+texto = "Pagina oficial de GitHub :https://github.com/"
+
+condicion = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+
+links = re.findall(condicion, texto)
+
+for x in links:
+    print(x)
+    
+    
+    #Código postal
+import socket
+
+def cp_valida(cp):
+    try:
+        socket.inet_aton(cp)
+        return True
+    except socket.error:
+        return False
+
+
+print(cp_valida("10080"))
+print(cp_valida("417g8n"))
+print(cp_valida("97780"))
+print(cp_valida("hwj8ws"))
